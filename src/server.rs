@@ -16,7 +16,7 @@ impl Greeter for MyGreeter {
     async fn say_hello(
         &self,
         request: Request<HelloRequest>,
-    ) -> Result<Response<HelloReply>, Status>{
+    ) -> Result<Response<HelloReply>, Status> {
         println!("got a request {:?}", request);
 
         let reply = HelloReply {
@@ -24,8 +24,7 @@ impl Greeter for MyGreeter {
         };
 
         Ok(Response::new(reply))
-
-        }
+    }
 }
 
 #[tokio::main]
@@ -38,6 +37,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .serve(addr)
         .await?;
     Ok(())
-
-    }
-
+}
